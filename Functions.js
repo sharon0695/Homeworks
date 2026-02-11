@@ -10,17 +10,18 @@
 */
 
 // Ejemplo de las funciones para determinar si un número es par o impar:
-
+//LA funcion debe en consola si el numero es par o impar
 // Función regular
 function esPar(num) {
     if (num % 2 === 0) {
-        return "El número es par.";
+        console.log("El número es par.");
     } else {
-        return "El número es impar.";
+        console.log("El número es impar.");
     }
 }
 
 // Función flecha
 const esParFlecha = (num) => {
-    return num % 2 === 0 ? "El número es par." : "El número es impar.";
+    return num % 2 === 0 ? console.log("El número es par.") : console.log("El número es impar.");
 }
+
