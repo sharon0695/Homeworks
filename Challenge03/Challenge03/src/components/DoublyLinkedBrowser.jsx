@@ -6,6 +6,7 @@ const mockedPages = [
     "About",
     "Services",
     "Contact",
+    "Questions"
 ]
 
 const history = new DoublyLinkedList();

@@ -7,6 +7,9 @@ const mockedSongs = [
     "HANDS UP",
     "Starlight",
     "If  Only",
+    "The Way You Make Me Feel",
+    "Don't Say You Love Me",
+    "Who"
 ]
 
 const list = new LinkedList();
@@ -27,7 +30,8 @@ export default function LinkedListPlayer() {
 
     return (
         <div>
-            <h2> Now Playing: {currentSong} </h2>
+            <h2> Now Playing:  </h2>
+            <h3> {currentSong} </h3> 
             <button onClick={handleNext}> Next Song </button>
             <button onClick={handleReset}> Reset Playlist </button>
         </div>
