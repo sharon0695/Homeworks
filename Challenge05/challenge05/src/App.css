@@ -40,3 +40,35 @@
 .read-the-docs {
   color: #888;
 }
+
+body{
+  background-color: #c09cc0;
+  font-size: larger;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+button{
+  background-color: rgb(163, 92, 160);
+  color: black;
+  border-color: #390452; 
+  border-width: 3px;
+  margin: 15px;
+  padding: 10px;
+}
+button:hover{
+  background-color: rgb(107, 41, 104);
+  border: none;
+}
+input{
+  background-color: rgb(252, 249, 252);
+  color: black;
+  border-color: #390452; 
+  border-width: 3px;
+  margin: 15px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+ul{
+  text-align: left;
+}

@@ -1,47 +1,23 @@
-import ATMdata from "./ATM";
+import ATMdata from "./ATMdata";
 
-class Queue {
-    private items: any[];
-    constructor(){
-        this.items = [];
-    }
+export class Queue {
 
-    enqueue(item:any){
-        this.items.push(item);
-    }
+  private items: ATMdata[];
 
-    dequeue(){
-        return this.items.length > 0 ? this.items.shift() : null;
-    }
+  constructor() {
+    this.items = [];
+  }
 
-    peek(){
-        return this.items.length > 0 ? this.items[0] : null;
-    }
+  enqueue(atmData: ATMdata): void {
+    this.items.push(atmData);
+  }
 
-    size() {
-        return this.items.length;
-    }
+  dequeue(): ATMdata | undefined {
+    return this.items.shift();
+  }
 
-    isEmpty(){
-        return this.items.length === 0;
-    }
+  getAll(): ATMdata[] {
+    return [...this.items];
+  }
 
-    print(){
-        this.items.forEach(item => {
-            console.log(item);
-        })
-    }
-
-    getAll(){
-        return this.items;
-    }
 }
-
-const queue = new Queue();
-queue.enqueue(new ATMdata("Alan Basante", 100, new Date()));
-queue.enqueue(new ATMdata("Maria Perez", 250, new Date()));
-queue.enqueue(new ATMdata("Sharon Rivera", 180, new Date()));
-queue.enqueue(new ATMdata("Samuel Moliña", 430, new Date()));
-queue.enqueue(new ATMdata("Juanito Alimaña", 320, new Date()));
-
-export default Queue;
