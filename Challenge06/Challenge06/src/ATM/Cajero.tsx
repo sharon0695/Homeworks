@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import {Queue} from './Queue'
 import ATMdata from './ATMdata'
-import './App.css'
+import './Atm.css'
+import { useNavigate } from 'react-router-dom'
 
 const queue = new Queue();
 queue.enqueue(new ATMdata("Alan Basante", 100));
@@ -11,6 +12,7 @@ queue.enqueue(new ATMdata("Samuel Moliña", 430));
 queue.enqueue(new ATMdata("Juanito Alimaña", 320));
 
 function App() {
+  const navigate = useNavigate()
   const [cola, setCola] = useState(queue.getAll());
 
   const [form, setForm] = useState({
@@ -66,6 +68,7 @@ function App() {
       <button onClick={atender}>
         Atender Siguiente
       </button>
+      <button onClick={() => navigate("/dashboard")}>Volver a la página principal</button>
     </div>
   )
 }

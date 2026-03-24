@@ -1,4 +1,4 @@
-import { IonPage, IonContent, IonButton } from "@ionic/react"
+
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext"
 import { replace, useNavigate } from "react-router-dom";
@@ -13,15 +13,29 @@ function Dashboard() {
     }
 
     return (
-        <IonPage>
-            <IonContent className="ion-padding">
-                <h2>Dashboard</h2>
-                <p>Bienvenido, {user?.email}!</p>
+        <div>
+            <h2>Dashboard</h2>
+            <p>Bienvenido, {user?.email}</p>
 
-                <IonButton onClick={handleLogout}>
-                    Cerrar sesión
-                </IonButton>
-            </IonContent>
-        </IonPage>
-    )
+            <hr />
+
+            <h3>Elige a que página te quieres dirigir</h3>
+
+            <button onClick={() => navigate("/biblioteca")}>
+                Ir a Biblioteca 📚
+            </button>
+
+            <button onClick={() => navigate("/atmdata")}>
+                Ir a Cajero Automático 💳
+            </button>
+
+            <hr />
+
+            <button onClick={handleLogout}>
+                Cerrar sesión
+            </button>
+        </div>
+    );
 }
+
+export default Dashboard;

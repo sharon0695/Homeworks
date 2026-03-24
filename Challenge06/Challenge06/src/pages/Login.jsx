@@ -1,7 +1,8 @@
-import { IonPage, IonContent, IonInput, IonButton } from "@ionic/react"
+
 import { useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext"
 import { useNavigate } from "react-router-dom";
+import "./styles.css"
 
 function Login() {
     const [email, setEmail] = useState("")
@@ -17,29 +18,29 @@ function Login() {
         } else {
             alert("Credenciales incorrectas")
         }
+        console.log(email, password)
     }
  
     return (
-        <IonPage>
-            <IonContent className="ion-padding">
-                <h2>Login</h2>
+        <div className="login-container">
+            <div className="login-box">
+                <h2>Iniciar Sesión</h2>
 
-                <IonInput
-                    placeholder="Email"
-                    onInput={(e) => setEmail(e.detail.value)}
+                <input
+                    placeholder="Correo electrónico"
+                    onChange={(e) => setEmail(e.target.value)}
                 />
-                <IonInput
-                    placeholder="Password"
+
+                <input
                     type="password"
-                    onInput={(e) => setPassword(e.detail.value)}
+                    placeholder="Contraseña"
+                    onChange={(e) => setPassword(e.target.value)}
                 />
 
-                <IonButton expand="block" onClick={handleLogin}>
-                    Ingresar
-                </IonButton>
-            </IonContent>
-        </IonPage>
-    )
+                <button onClick={handleLogin}>Ingresar</button>
+            </div>
+        </div>
+    );
 }
 
 export default Login
