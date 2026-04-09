@@ -32,22 +32,33 @@ class ArbolBinario {
     preorden(nodo) {
         if (!nodo) return
         console.log(nodo.valor)
-        preorden(nodo.izquierda)
-        preorden(nodo.derecha)
+        this.preorden(nodo.izquierda)
+        this.preorden(nodo.derecha)
     }
 
     inorden(nodo) {
         if (!nodo) return
-        inorden(nodo.izquierda)
+        this.inorden(nodo.izquierda)
         console.log(nodo.valor)
-        inorden(nodo.derecha)        
+        this.inorden(nodo.derecha)        
     }
 
     postorden(nodo) {
         if (!nodo) return
-        postorden(nodo.izquierda)
-        postorden(nodo.derecha)
+        this.postorden(nodo.izquierda)
+        this.postorden(nodo.derecha)
         console.log(nodo.valor)        
+    }
+
+    buscar(valor, nodo = this.raiz) {
+        if (!nodo) return false
+        if (nodo.valor === valor) return true
+
+        if (valor < nodo.valor) {
+            return this.buscar(valor, nodo.izquierda)
+        } else {
+            return this.buscar(valor, nodo.derecha)
+        }
     }
 }
 export default ArbolBinario

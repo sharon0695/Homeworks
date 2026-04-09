@@ -1,24 +1,12 @@
-import ArbolBinario from "./estructura/ArbolBinario.js"
-import arbol from "./data.js"
+const imprimirRecorridos = (arbol) => {
+    console.log("INORDEN:")
+    arbol.inorden(arbol.raiz)
 
-//imprimir los números que se encuentran en arbol usando las funciones de arbol binario para imprimir por consola inorder, preorder y postorder
+    console.log("PREORDEN:")
+    arbol.preorden(arbol.raiz)
 
-function imprimirNumeros(arbol) {
-    const arbolBinario = new ArbolBinario()
-    arbolBinario.insertar(arbol.valor)
-    arbolBinario.insertar(arbol.izquierda.valor)
-    arbolBinario.insertar(arbol.izquierda.izquierda.valor)
-    arbolBinario.insertar(arbol.izquierda.derecha.valor)
-    arbolBinario.insertar(arbol.derecha.valor)
-
-    console.log("Inorder:")
-    arbolBinario.inorden(arbolBinario.raiz)
-
-    console.log("Preorder:")
-    arbolBinario.preorden(arbolBinario.raiz)
-
-    console.log("Postorder:")
-    arbolBinario.postorden(arbolBinario.raiz)
+    console.log("POSTORDEN:")
+    arbol.postorden(arbol.raiz)
 }
 
-export default { imprimirNumeros }
+export default imprimirRecorridos
