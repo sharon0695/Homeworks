@@ -1,0 +1,9 @@
+Sistema de clínica donde:
+- Los pacientes llegan y se registran (Cola)
+- Los médicos atienden pacientes (se sacan de la cola)
+- Cada paciente tiene n historial de acciones (pila)
+- Estructura de especialidades médicas (árbol)
+
+Login para:
+- Recepcionista
+- Médico 
