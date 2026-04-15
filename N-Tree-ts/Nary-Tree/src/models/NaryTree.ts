@@ -22,17 +22,35 @@ class NaryTree<T> {
         return null;
     }
 
-    insert(parentValue: T, value: T): boolean {
+    insert(parentValue: T | null, value: T): boolean {
         //árbol sin raíz
         if (!this.root) {
             this.root = new TreeNode(value);
             return true;
         }
+        if(parentValue === null) return false; //si se intenta insertar un nodo sin padre en un árbol con raíz
         const parent = this.find(parentValue);
         if (!parent) return false;
 
         parent.addChild(new TreeNode(value));
         return true;
+    }
+
+    clone(): NaryTree<T> {
+        const newTree = new NaryTree<T>();
+        const cloneNode = (node: TreeNode<T>): TreeNode<T> => {
+            const newNode = new TreeNode(node.value);
+            for (const child of node.children.toArray()) {
+                newNode.addChild(cloneNode(child));
+            }
+            return newNode;
+        };
+
+        if (this.root) {
+            newTree.root = cloneNode(this.root);
+        }
+
+        return newTree;
     }
 }
 

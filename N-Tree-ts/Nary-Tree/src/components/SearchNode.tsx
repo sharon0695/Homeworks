@@ -1,12 +1,12 @@
 import { useState } from "react";
-import useTree from "../hooks/useTree";
+import {useTree} from "../hooks/useTree";
 
 const SearchNode = () => {
-    const { tree } = useTree();
+    const { findNode } = useTree();
     const [value, setValue] = useState("");
 
     const handleSearch = () => {
-        const result = tree?.find(value)
+        const result = findNode(value);
         alert(result ? `Nodo encontrado: ${result.value}` : "Nodo no encontrado");
     }
 

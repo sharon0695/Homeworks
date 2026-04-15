@@ -1,15 +1,16 @@
 import { useState } from "react";
-import useTree from "../hooks/useTree";
+import {useTree} from "../hooks/useTree";
 
 const AddNodeForm = () => {
-    const { addNode } = useTree();
+    const { createNode } = useTree();
     const [parent, setParent] = useState("");
     const [value, setValue] = useState("");
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        addNode(parent, value);
+        createNode(parent || null, value);
         setValue("");
+        setParent("");
     }
 
     return (
