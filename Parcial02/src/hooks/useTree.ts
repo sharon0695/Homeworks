@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {TreeNode, type NodeType } from "../models/TreeNode";
+import type { NodeType } from "../models/TreeNode";
 import { ArbolNario } from "../models/NaryTree";
 import { saveNode, getNodes } from "../firebase/TreeManage";
 
@@ -12,10 +12,20 @@ export const useTree = (userEmail: string | null) => {
     try {
       setLoading(true);
 
-      const nodes = await getNodes();
+      const nodes = await getNodes(userEmail!);
 
       const newTree = new ArbolNario();
-      newTree.buildFromList(nodes);
+      if (nodes.length === 0) {
+        const root = newTree.insert(
+          "home",
+          "folder",
+          null,
+          userEmail || "system"
+        );
+        await saveNode(root);
+      } else {
+        newTree.buildFromList(nodes);
+      }
 
       setTree(newTree);
     } catch (err) {
@@ -27,8 +37,10 @@ export const useTree = (userEmail: string | null) => {
   };
 
   useEffect(() => {
-    loadTree();
-  }, []);
+    if (userEmail) {
+      loadTree();
+    }
+  }, [userEmail]);
 
   const addNode = async (
     name: string,

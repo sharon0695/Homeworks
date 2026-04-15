@@ -72,7 +72,7 @@ const FilesExplorer = ({ addNode, treeNodes }: Props) => {
                             setParentId(e.target.value || null)
                         }
                     >
-                        <option value="">(Raíz)</option>
+                        <option value=""></option>
                         {validParents.map(node => (
                             <option key={node.id} value={node.id}>
                                 {node.name}

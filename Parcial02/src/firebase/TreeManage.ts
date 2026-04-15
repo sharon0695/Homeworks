@@ -1,4 +1,4 @@
-import {collection,addDoc,getDocs} from "firebase/firestore";
+import {collection,addDoc,getDocs, query, where} from "firebase/firestore";
 import { db } from "./config";
 import { TreeNode } from "../models/TreeNode";
   
@@ -18,14 +18,18 @@ import { TreeNode } from "../models/TreeNode";
     }
   };
   
-  export const getNodes = async (): Promise<TreeNode[]> => {
+  export const getNodes = async (userEmail: string): Promise<TreeNode[]> => {
     try {
-      const snapshot = await getDocs(collection(db, collectionName));
-  
-      return snapshot.docs.map(doc => doc.data() as TreeNode);
+        const q = query(
+            collection(db, collectionName),
+            where("createdBy", "==", userEmail)
+        );
+
+        const snapshot = await getDocs(q);
+
+        return snapshot.docs.map(doc => doc.data() as TreeNode);
     } catch (error) {
-      console.error("Error obteniendo nodos:", error);
-      return [];
+        console.error("Error obteniendo nodos:", error);
+        return [];
     }
-  };
-  
+};
