@@ -8,7 +8,7 @@ const Home = () => {
 
     return (
         <div>
-            <h1>Árbol N-ario</h1>
+            <h1>Árbolito N-ario</h1>
             <AddNodeForm />
             <SearchNode />
             {tree?.root && <TreeView node={tree.root} />}
