@@ -1,0 +1,82 @@
+@use "./_variables.scss";
+
+.auth-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-card {
+    background: white;
+    padding: 2rem;
+    border-radius: variables.$radius;
+    width: 360px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.4s ease-in-out;
+
+    h2 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    h3{
+        text-align: center;
+        margin-bottom: 1.5rem;
+        color: variables.$secondary;
+    }
+
+    input {
+        width: 100%;
+        margin-bottom: 1rem;
+        padding: 12px;
+        border-radius: variables.$radius;
+        border: 1px solid #ddd;
+        transition: 0.2s;
+
+        &:focus {
+            border-color: variables.$primary;
+            outline: none;
+        }
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: variables.$radius;
+        background: variables.$primary;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+
+        &:hover {
+            transform: translateY(-2px);
+            background: #4338ca;
+        }
+    }
+
+    .link {
+        text-align: center;
+        margin-top: 10px;
+
+        a {
+            color: variables.$secondary;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
