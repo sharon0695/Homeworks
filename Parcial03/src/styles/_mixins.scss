@@ -1,0 +1,14 @@
+@use "./variables" as *;
+
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin card {
+    background: $card;
+    border: 1px solid $border;
+    border-radius: 14px;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}

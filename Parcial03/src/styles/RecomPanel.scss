@@ -1,0 +1,36 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
+.recommendation {
+    @include card;
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.recommendation h2 {
+    color: $primary;
+    margin-bottom: 1rem;
+}
+
+.recommendation-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.recommendation-card {
+    background:linear-gradient(135deg,$primary,#34e07a);
+    color: black;
+    border: none;
+    padding: 1rem 1.2rem;
+    border-radius: 999px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.recommendation-card:hover {
+    transform: scale(1.08);
+    box-shadow:0 8px 20px rgba(29,185,84,.35);
+}
